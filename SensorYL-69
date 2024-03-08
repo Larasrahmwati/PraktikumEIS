@@ -1,0 +1,19 @@
+const int sensorPin = A0; // Pin analog untuk sensor kelembaban tanah
+
+void setup() {
+  Serial.begin(9600); // Inisialisasi komunikasi serial
+}
+
+void loop() {
+  int sensorValue = analogRead(sensorPin); // Membaca nilai dari sensor kelembaban tanah
+  Serial.print("Sensor Kelembaban Tanah: ");
+  Serial.print(sensorValue);
+
+  if (sensorValue < 300) { // Nilai ambang batas, sesuaikan dengan kondisi tanaman Anda
+    Serial.println(" - Tanah Kering");
+  } else {
+    Serial.println(" - Tanah Basah");
+  }
+
+  delay(1000); // Tunda selama 1 detik
+}
